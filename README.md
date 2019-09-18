@@ -33,7 +33,6 @@ POST api-pessoas/create<br/>
       name: 'João',
       email: 'joao@email.com'
     }<br/>
-
   retorno
     {
       id: 1
