@@ -19,7 +19,7 @@ Repositório da disciplina 'Tópicos Avançados de Engenharia de Software'
   a validação de cpf e email será com uma api publica
   e devolvem uma resposta ao serviço que requisitou
 
-#####oque permite
+##### oque permite
   receber dados em formato json onde cada endpoint exige determinados
   parametros
 
@@ -27,57 +27,57 @@ Repositório da disciplina 'Tópicos Avançados de Engenharia de Software'
 
 ##### Exemplos
 
-POST api-pessoas/create
+POST api-pessoas/create<br/>
   params
     {
       name: 'João',
       email: 'joao@email.com'
-    }
+    }<br/>
 
   retorno
     {
       id: 1
-    }
+    }<br/>
 
-GET api-pessoas/read
+GET api-pessoas/read<br/>
   params
     {
       id: 1
-    }
+    }<br/>
   retorno
     {
       name: 'João',
       email: 'joao@email.com',
       age: '',
       gender: ''
-    }
+    }<br/>
 
-PUT /update
+PUT api-pessoas/update<br/>
   params
     {
       id: 1,
       email: 'joao@joao.com'
-    }
+    }<br/>
   retorno
     {
       id: 1
-    }
+    }<br/>
 
-DELETE api-pessoas/destroy
+DELETE api-pessoas/destroy<br/>
   params
     {
       id: 1
-    }
+    }<br/>
   retorno
     {
       status: 'success'
-    }
+    }<br/>
 
-GET api-pessoas/index
+GET api-pessoas/index<br/>
   params
     {
       pages: 1
-    }
+    }<br/>
   retorno
     [
       {
@@ -86,4 +86,4 @@ GET api-pessoas/index
         age: '',
         gender ''
       },
-    ]
+    ]<br/>
