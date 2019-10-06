@@ -27,10 +27,9 @@ Repositório da disciplina 'Tópicos Avançados de Engenharia de Software'
 
 ##### Exemplos
 
-POST api-pessoas/create<br/>
+POST people/create<br/>
   params
     {
-      name: 'João',
       email: 'joao@email.com'
     }<br/>
   retorno
@@ -38,20 +37,25 @@ POST api-pessoas/create<br/>
       id: 1
     }<br/>
 
-GET api-pessoas/read<br/>
+```
+  curl +X POST https://salty-cove-05656.herokuapp.com/people?email=<email>
+```
+
+GET people/<id><br/>
   params
     {
       id: 1
     }<br/>
   retorno
     {
-      name: 'João',
       email: 'joao@email.com',
-      age: '',
-      gender: ''
     }<br/>
 
-PUT api-pessoas/update<br/>
+```
+  curl +X GET https://salty-cove-05656.herokuapp.com/people/<id>
+```
+
+PUT people/<id><br/>
   params
     {
       id: 1,
@@ -62,7 +66,11 @@ PUT api-pessoas/update<br/>
       id: 1
     }<br/>
 
-DELETE api-pessoas/destroy<br/>
+```
+  curl +X PUT https://salty-cove-05656.herokuapp.com/people/<id>?email=<email>
+```
+
+DELETE people/<id><br/>
   params
     {
       id: 1
@@ -72,7 +80,12 @@ DELETE api-pessoas/destroy<br/>
       status: 'success'
     }<br/>
 
-GET api-pessoas/index<br/>
+```
+  curl +X DELETE https://salty-cove-05656.herokuapp.com/people/<id>
+```
+
+##### Not yet implemented
+GET people/index<br/>
   params
     {
       pages: 1
@@ -80,9 +93,6 @@ GET api-pessoas/index<br/>
   retorno
     [
       {
-        name: 'João',
         email: 'joao@email.com'
-        age: '',
-        gender ''
       },
     ]<br/>
