@@ -26,7 +26,7 @@ class PeopleController < ActionController::Base
     return render json: "Record not found.\n" if person.blank?
 
     Clients::DatabaseClient.update_person(person, params)
-    render json: "person_id: #{person.first.reload.id}\n"
+    render json: "person_id: #{person.reload.id}\n"
   rescue StandardError => e
     render json: "error: #{e}\n"
   end
