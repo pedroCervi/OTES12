@@ -5,7 +5,7 @@ class PeopleController < ActionController::Base
     person = Person.new(email: params[:email])
 
     Clients::DatabaseClient.create_person(person)
-    render json: "person_id: #{person.reload.id}\n"
+    render json: "person_id: #{person.id}\n"
   rescue StandardError => e
     render json: "error: #{e}\n"
   end
