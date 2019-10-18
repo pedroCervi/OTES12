@@ -18,6 +18,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pry', '~> 0.12.2'
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.8'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
