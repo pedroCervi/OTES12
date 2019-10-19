@@ -15,6 +15,14 @@ RSpec.describe PeopleController, type: :controller do
         expect(response.body).to eq("person_id: #{person.id}\n")
       end
     end
+
+    context 'when passing invalid params' do
+      before { post :create, params: { invalid_param: 'test@email.com' } }
+
+      it 'returns an error' do
+        expect(response.body.include?('error:')).to be(true)
+      end
+    end
   end
 
   describe 'GET show' do
@@ -38,8 +46,47 @@ RSpec.describe PeopleController, type: :controller do
   end
 
   describe 'PUT update' do
+    let!(:person) { FactoryBot.create(:person) }
+    let!(:person_old_attributes) { person.attributes }
+
+    context 'when passing valid params' do
+      before { put :update, params: { id: person.id, email: 'new_test@email.com' } }
+
+      it 'updates the person attributes' do
+        expect(person.reload.attributes).not_to eq(person_old_attributes)
+      end
+
+      it 'returns the person id' do
+        expect(response.body).to eq("person_id: #{person.id}\n")
+      end
+    end
+
+    context 'when passing invalid params' do
+      before { put :update, params: { id: person.id, invalid_param: 'test@email.com' } }
+
+      it 'returns an error' do
+        expect(response.body.include?('error:')).to be(true)
+      end
+    end
   end
 
   describe 'DELETE destroy' do
+    context 'when the requested person exists' do
+      let(:person) { FactoryBot.create(:person) }
+
+      it 'destroys the person' do
+        delete :destroy, params: { id: person.id }
+
+        expect(response.body).to eq("Person successfully deleted.\n")
+      end
+    end
+
+    context 'when the requested person does not exists' do
+      it "returns a 'record not found' message" do
+        delete :destroy, params: { id: 12_345 }
+
+        expect(response.body).to eq('Record not found.' + "\n")
+      end
+    end
   end
 end
