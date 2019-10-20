@@ -1,6 +1,7 @@
 class PersonBuilder
   def initialize
     @person = Person.new
+    @person.components = []
   end
 
   def self.build
@@ -10,7 +11,7 @@ class PersonBuilder
   end
 
   def compose_basic_information(params)
-    @person.email = params['email']
+    Components::Composites::PersonBasic.new(@person, params)
   end
 
   def compose_personal_information(params); end
@@ -18,6 +19,18 @@ class PersonBuilder
   def compose_financial_information(params); end
 
   def person
+    assemble
+
     @person
+  end
+
+  def assemble
+    attributes = {}
+
+    @person.components.each do |component|
+      attributes[component.type.to_s] = component.value
+    end
+
+    @person.attributes = attributes
   end
 end
