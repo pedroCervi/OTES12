@@ -3,10 +3,12 @@ module Clients::DatabaseClient
     person.save
   end
 
-  def self.show_person(id)
+  def self.find_person(id)
     person = Person.where(id: id)
 
-    person.blank? ? nil : person.first
+    return if person.blank?
+
+    person.first
   end
 
   def self.update_person(person, params)

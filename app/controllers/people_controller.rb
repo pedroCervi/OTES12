@@ -2,7 +2,7 @@ class PeopleController < ActionController::Base
   protect_from_forgery with: :null_session
 
   def create
-    person = Person.new(email: params[:email])
+    person = Clients::PersonBuilderClient.new(params).person
 
     Clients::DatabaseClient.create_person(person)
     render json: "person_id: #{person.id}\n"
@@ -11,7 +11,7 @@ class PeopleController < ActionController::Base
   end
 
   def show
-    person = Clients::DatabaseClient.show_person(params[:id])
+    person = Clients::DatabaseClient.find_person(params[:id])
 
     if person.present?
       render json: "#{person.to_json}\n"
@@ -21,7 +21,7 @@ class PeopleController < ActionController::Base
   end
 
   def update
-    person = Clients::DatabaseClient.show_person(params[:id])
+    person = Clients::DatabaseClient.find_person(params[:id])
 
     return render json: "Record not found.\n" if person.blank?
 
@@ -32,7 +32,7 @@ class PeopleController < ActionController::Base
   end
 
   def destroy
-    person = Clients::DatabaseClient.show_person(params[:id])
+    person = Clients::DatabaseClient.find_person(params[:id])
 
     return render json: "Record not found.\n" if person.blank?
 
