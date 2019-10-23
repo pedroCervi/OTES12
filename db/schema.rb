@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_233911) do
+ActiveRecord::Schema.define(version: 2019_10_23_001150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "people", force: :cascade do |t|
     t.string "email", default: "", null: false
+    t.string "bank_name"
+    t.string "bank_account_number"
+    t.string "bank_agency_number"
+    t.string "credit_card_number"
+    t.string "credit_card_flag"
+    t.string "age"
+    t.string "cpf"
   end
 
 end

@@ -14,7 +14,9 @@ class PersonBuilder
     Components::Composites::PersonBasic.new(@person, params)
   end
 
-  def compose_personal_information(params); end
+  def compose_personal_information(params)
+    Components::Composites::PersonPersonal.new(@person, params)
+  end
 
   def compose_financial_information(params); end
 
