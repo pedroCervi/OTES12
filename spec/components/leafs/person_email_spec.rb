@@ -16,7 +16,7 @@ RSpec.describe Components::Leafs::PersonEmail do
   end
 
   describe '.type' do
-    it 'returns basic_composite' do
+    it 'returns email' do
       expect(email_leaf.type).to be(:email)
     end
   end
