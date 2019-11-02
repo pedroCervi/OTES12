@@ -10,7 +10,9 @@ module Components::Leafs
     end
 
     def valid?
-      @value.blank? || @value.include?('')
+      return true if @value.blank?
+
+      @value.include?('')
     end
 
     def type
