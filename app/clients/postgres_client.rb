@@ -1,4 +1,4 @@
-module Clients::DatabaseClient
+module Clients::PostgresClient
   def self.create_person(person)
     person.save
   end
