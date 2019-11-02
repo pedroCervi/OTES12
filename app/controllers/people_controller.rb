@@ -4,14 +4,14 @@ class PeopleController < ActionController::Base
   def create
     person = Clients::PersonBuilderClient.new(params).person
 
-    Clients::DatabaseClient.create_person(person)
+    adaptee_database.create(person)
     render json: "person_id: #{person.id}\n"
   rescue StandardError => e
     render json: "error: #{e}\n"
   end
 
   def show
-    person = Clients::DatabaseClient.find_person(params[:id])
+    person = adaptee_database.read(params[:id])
 
     if person.present?
       render json: "#{person.to_json}\n"
@@ -21,24 +21,38 @@ class PeopleController < ActionController::Base
   end
 
   def update
-    person = Clients::DatabaseClient.find_person(params[:id])
+    person = adaptee_database.read(params[:id])
 
     return render json: "Record not found.\n" if person.blank?
 
-    Clients::DatabaseClient.update_person(person, params)
+    adaptee_database.update(person, params)
     render json: "person_id: #{person.id}\n"
   rescue StandardError => e
     render json: "error: #{e}\n"
   end
 
   def destroy
-    person = Clients::DatabaseClient.find_person(params[:id])
+    person = adaptee_database.read(params[:id])
 
     return render json: "Record not found.\n" if person.blank?
 
-    Clients::DatabaseClient.destroy_person(person)
+    adaptee_database.delete(person)
     render json: "Person successfully deleted.\n"
   rescue StandardError => e
     render json: "error: #{e}\n"
+  end
+
+  private
+
+  def postgres_client
+    @postgres_client ||= Clients::PostgresClient.new
+  end
+
+  def postgres_adapter
+    @postgres_adapter ||= Adapters::PostgresAdapter.new(postgres_client)
+  end
+
+  def adaptee_database
+    @adaptee_database ||= Adapters::AdapteeDatabase.new(postgres_adapter)
   end
 end
