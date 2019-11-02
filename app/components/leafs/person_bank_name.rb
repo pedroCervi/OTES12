@@ -1,5 +1,5 @@
 module Components::Leafs
-  class PersonAge < Components::PersonComponent
+  class PersonBankName < Components::PersonComponent
     attr_accessor :value
 
     def initialize(person, value)
@@ -10,13 +10,11 @@ module Components::Leafs
     end
 
     def valid?
-      return false if @value.to_i < 18
-
       @value.blank? || @value.include?('')
     end
 
     def type
-      :age
+      :bank_name
     end
   end
 end
