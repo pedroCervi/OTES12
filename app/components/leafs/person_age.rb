@@ -10,7 +10,10 @@ module Components::Leafs
     end
 
     def valid?
-      @value.blank? || @value.include?('')
+      return true if @value.blank?
+      return false if @value.to_i < 18
+
+      @value.include?('')
     end
 
     def type

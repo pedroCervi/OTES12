@@ -1,5 +1,5 @@
 module Components::Leafs
-  class PersonCpf < Components::PersonComponent
+  class PersonBankName < Components::PersonComponent
     attr_accessor :value
 
     def initialize(person, value)
@@ -16,7 +16,7 @@ module Components::Leafs
     end
 
     def type
-      :cpf
+      :bank_name
     end
   end
 end
