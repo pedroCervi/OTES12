@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Components::Composites::PersonPersonal do
   let(:person) { Person.new }
-  let(:params) { { email: 'some@email.com', cpf: '111', age: '20' } }
+  let(:params) { { email: 'some@email.com', cpf: '111', name: 'Marvin' } }
   let(:personal_composite) { described_class.new(person, params) }
 
   before do
