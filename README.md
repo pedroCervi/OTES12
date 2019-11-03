@@ -4,26 +4,17 @@ Repositório da disciplina 'Tópicos Avançados de Engenharia de Software'
 
 #### API de pessoas
 
-##### objetivo
-  armazenar dados de pessoas
+##### Objetivo
+  Oferecer um serviço de controle de dados de pessoas para sistemas de múltiplas finalidades. Por exemplo, para sistemas que possuem usuários é possível salvar na people-api pessoas de tipo 'user' onde determinados parâmetros comuns de usuários são validados, como o email. Ou, para sistemas que possuem pessoas de tipo 'lead', validar outros dados como dados financeiros. A finalidade é desacoplar de sistemas modularizados a necessidade de guardar, validar, editar e deletar pessoas.
 
-##### oque faz
-  CRUD para entidades 'pessoas' com dados de:
-  [name, age, gender, email, cpf, birthday].
-  As chamadas a esses endpoints serão logadas em serviço externo
-  Haverá também uma opção no /create em que será possível 'gerar'
-  uma pessoa randômica
+##### Oque faz
+  Cria, lê, atualiza ou deleta entidades 'pessoas' em um banco de dados.
 
-##### como faz
-  oferece endpoints publicos que recebem parametros que são validados,
-  a validação de cpf e email será com uma api publica
-  e devolvem uma resposta ao serviço que requisitou
+##### Como faz
+  Oferece endpoints públicos para operações REST em entidades 'pessoa'. Os endpoints recebem parâmetros que são validados no escopo do parâmetro em si, por exemplo: o número de cpf é válido? E ocorrem também validações no escopo da correlação de parâmetros, por exemplo: o número da agência bancária, o número da conta bancária e o nome do banco existem?<br/>
 
-##### oque permite
-  receber dados em formato json onde cada endpoint exige determinados
-  parametros
-
-
+##### Oque permite
+  A requisição pode informar o type da pessoa como 'user' ou 'lead'. No caso de 'user' é possível salvar dados de [email, cpf, age]. No caso de 'lead' é possível passar, além desses parâmetros, parâmetros de status financeiro da pessoa como: [bank_name, bank_account_number, bank_account_agency, credit_card_flag, credit_card_number]. Se o type da pessoa não for informado, é criada uma pessoa só com a informação de [email]. No endpoint /create é possível também passar uma opção random [TODO] que gera uma pessoa randômica do tipo escolhido.
 
 ##### Exemplos
 
@@ -83,16 +74,3 @@ DELETE people/<id><br/>
 ```
   curl +X DELETE https://salty-cove-05656.herokuapp.com/people/<id>
 ```
-
-##### Not yet implemented
-GET people/index<br/>
-  params
-    {
-      pages: 1
-    }<br/>
-  retorno
-    [
-      {
-        email: 'joao@email.com'
-      },
-    ]<br/>
