@@ -8,7 +8,7 @@ RSpec.describe Clients::PersonBuilderClient do
           type: 'lead',
           cpf: '111',
           email: 'some@email.com',
-          age: '20',
+          name: 'Marvin The Robot',
           bank_name: 'name',
           bank_agency_number: '1',
           bank_account_number: '12344',
@@ -53,10 +53,10 @@ RSpec.describe Clients::PersonBuilderClient do
         expect(user.bank_account_number).to eq(params[:bank_account_number])
       end
 
-      it 'instantiates a lead person with age information' do
+      it 'instantiates a lead person with name information' do
         user = described_class.new(params).person
 
-        expect(user.age).to eq(params[:age])
+        expect(user.name).to eq(params[:name])
       end
 
       it 'instantiates a lead person with cpf information' do
@@ -81,10 +81,10 @@ RSpec.describe Clients::PersonBuilderClient do
         described_class.new(params).person
       end
 
-      it 'instantiates a user person with age information' do
+      it 'instantiates a user person with name information' do
         user = described_class.new(params).person
 
-        expect(user.age).to eq(params[:age])
+        expect(user.name).to eq(params[:name])
       end
 
       it 'instantiates a user person with cpf information' do

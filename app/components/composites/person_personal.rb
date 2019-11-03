@@ -18,7 +18,7 @@ module Components::Composites
 
     def subcomponents
       @subcomponents << Components::Leafs::PersonCpf.new(@person, @params[:cpf])
-      @subcomponents << Components::Leafs::PersonAge.new(@person, @params[:age])
+      @subcomponents << Components::Leafs::PersonName.new(@person, @params[:name])
 
       @subcomponents
     end
