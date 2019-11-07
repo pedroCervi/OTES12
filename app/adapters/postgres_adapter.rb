@@ -19,5 +19,9 @@ module Adapters
     def delete(person)
       @postgres_client.destroy_person(person)
     end
+
+    def index(type)
+      @postgres_client.index(type)
+    end
   end
 end

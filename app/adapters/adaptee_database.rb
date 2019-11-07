@@ -19,5 +19,9 @@ module Adapters
     def delete(person)
       @adapter.delete(person)
     end
+
+    def index(type)
+      @adapter.index(type)
+    end
   end
 end

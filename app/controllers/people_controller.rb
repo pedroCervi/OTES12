@@ -42,6 +42,14 @@ class PeopleController < ActionController::Base
     render json: "error: #{e}\n"
   end
 
+  def index
+    people = adaptee_database.index(params[:type])
+
+    return render json: "No Record found.\n" if people.blank?
+
+    render json: people.to_json
+  end
+
   private
 
   def postgres_client
