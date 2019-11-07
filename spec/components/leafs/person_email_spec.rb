@@ -10,8 +10,18 @@ RSpec.describe Components::Leafs::PersonEmail do
   end
 
   describe '.valid?' do
-    it 'returns true' do
-      expect(email_leaf.valid?).to be(true)
+    context 'when it is valid' do
+      it 'returns true' do
+        expect(email_leaf.valid?).to be(true)
+      end
+    end
+
+    context 'when it is invalid' do
+      let(:params) { 'invalidemail.com' }
+
+      it 'returns false' do
+        expect(email_leaf.valid?).to be(false)
+      end
     end
   end
 
