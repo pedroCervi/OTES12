@@ -2,6 +2,8 @@ module Components::Leafs
   class PersonCpf < Components::PersonComponent
     attr_accessor :value
 
+    PATTERN = '[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}'.freeze
+
     def initialize(person, value)
       @person = person
       @value = value
@@ -12,7 +14,9 @@ module Components::Leafs
     def valid?
       return true if @value.blank?
 
-      @value.include?('')
+      regex = Regexp.new(PATTERN)
+
+      @value.match?(regex)
     end
 
     def type
