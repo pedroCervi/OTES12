@@ -10,7 +10,7 @@ RSpec.describe Clients::PersonBuilderClient do
           email: 'some@email.com',
           name: 'Marvin The Robot',
           bank_name: 'Banco do Brasil',
-          bank_agency_number: '1',
+          bank_agency_number: '1456',
           bank_account_number: '12344',
           credit_card_number: '4821531560040456',
           credit_card_flag: 'Visa'
