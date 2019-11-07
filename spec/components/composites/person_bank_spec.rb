@@ -13,8 +13,18 @@ RSpec.describe Components::Composites::PersonBank do
   end
 
   describe '.valid?' do
-    it 'returns true' do
-      expect(bank_composite.valid?).to be(true)
+    context 'when it is valid' do
+      it 'returns true' do
+        expect(bank_composite.valid?).to be(true)
+      end
+    end
+
+    context 'when it is invalid' do
+      let(:params) { { bank_name: 'BB' } }
+
+      it 'returns false' do
+        expect(bank_composite.valid?).to be(false)
+      end
     end
   end
 

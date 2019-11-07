@@ -9,7 +9,12 @@ module Components::Composites
     end
 
     def valid?
-      true
+      params = [
+        @params[:credit_card_number],
+        @params[:credit_card_flag]
+      ]
+
+      params.any? ? params.all? : true
     end
 
     def type

@@ -9,7 +9,13 @@ module Components::Composites
     end
 
     def valid?
-      true
+      params = [
+        @params[:bank_name],
+        @params[:bank_agency_number],
+        @params[:bank_account_number]
+      ]
+
+      params.any? ? params.all? : true
     end
 
     def type

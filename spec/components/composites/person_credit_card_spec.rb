@@ -13,8 +13,18 @@ RSpec.describe Components::Composites::PersonCreditCard do
   end
 
   describe '.valid?' do
-    it 'returns true' do
-      expect(credit_card_composite.valid?).to be(true)
+    context 'when it is valid' do
+      it 'returns true' do
+        expect(credit_card_composite.valid?).to be(true)
+      end
+    end
+
+    context 'when it is invalid' do
+      let(:params) { { credit_card_number: '123' } }
+
+      it 'returns false' do
+        expect(credit_card_composite.valid?).to be(false)
+      end
     end
   end
 

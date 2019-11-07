@@ -2,6 +2,8 @@ module Components::Leafs
   class PersonCreditCardFlag < Components::PersonComponent
     attr_accessor :value
 
+    FLAGS = %w[Visa Mastercard].freeze
+
     def initialize(person, value)
       @person = person
       @value = value
@@ -12,7 +14,7 @@ module Components::Leafs
     def valid?
       return true if @value.blank?
 
-      @value.include?('')
+      FLAGS.include?(@value)
     end
 
     def type

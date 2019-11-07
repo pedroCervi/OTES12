@@ -2,6 +2,8 @@ module Components::Leafs
   class PersonBankName < Components::PersonComponent
     attr_accessor :value
 
+    BANKS = ['Banco do Brasil'].freeze
+
     def initialize(person, value)
       @person = person
       @value = value
@@ -12,7 +14,7 @@ module Components::Leafs
     def valid?
       return true if @value.blank?
 
-      @value.include?('')
+      BANKS.include?(@value)
     end
 
     def type

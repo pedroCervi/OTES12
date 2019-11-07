@@ -8,7 +8,7 @@ class Components::PersonComponent
   end
 
   def compose_with_error
-    @person.errors.add(type)
+    @person.errors << type
   end
 
   def valid?

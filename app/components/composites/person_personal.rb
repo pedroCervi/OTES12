@@ -9,7 +9,12 @@ module Components::Composites
     end
 
     def valid?
-      true
+      params = [
+        @params[:cpf],
+        @params[:name]
+      ]
+
+      params.any? ? params.all? : true
     end
 
     def type

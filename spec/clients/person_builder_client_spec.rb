@@ -6,14 +6,14 @@ RSpec.describe Clients::PersonBuilderClient do
       let(:params) do
         {
           type: 'lead',
-          cpf: '111',
+          cpf: '794.857.642-86',
           email: 'some@email.com',
           name: 'Marvin The Robot',
-          bank_name: 'name',
-          bank_agency_number: '1',
-          bank_account_number: '12344',
-          credit_card_number: '45',
-          credit_card_flag: 'flag'
+          bank_name: 'Banco do Brasil',
+          bank_agency_number: '1456',
+          bank_account_number: '26548-8',
+          credit_card_number: '4821531560040456',
+          credit_card_flag: 'Visa'
         }
       end
 
@@ -73,7 +73,14 @@ RSpec.describe Clients::PersonBuilderClient do
     end
 
     context 'when type is user' do
-      let(:params) { { type: 'user', cpf: '111', email: 'some@email.com', age: '20' } }
+      let(:params) do
+        {
+          type: 'user',
+          cpf: '794.857.642-86',
+          email: 'some@email.com',
+          name: 'Marvin'
+        }
+      end
 
       it 'calls the builder' do
         expect(PersonBuilder).to receive(:build)
