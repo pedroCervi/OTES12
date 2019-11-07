@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Components::Leafs::PersonCreditCardNumber do
   let(:person) { Person.new }
-  let(:params) { '111' }
+  let(:params) { '4821531560040456' }
   let(:credit_card_number_leaf) { described_class.new(person, params) }
 
   before do
@@ -10,8 +10,18 @@ RSpec.describe Components::Leafs::PersonCreditCardNumber do
   end
 
   describe '.valid?' do
-    it 'returns true' do
-      expect(credit_card_number_leaf.valid?).to be(true)
+    context 'when it is valid' do
+      it 'returns true' do
+        expect(credit_card_number_leaf.valid?).to be(true)
+      end
+    end
+
+    context 'when it is invalid' do
+      let(:params) { 'invalid' }
+
+      it 'returns false' do
+        expect(credit_card_number_leaf.valid?).to be(false)
+      end
     end
   end
 
