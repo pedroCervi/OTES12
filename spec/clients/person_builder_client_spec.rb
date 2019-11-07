@@ -70,6 +70,12 @@ RSpec.describe Clients::PersonBuilderClient do
 
         expect(user.email).to eq(params[:email])
       end
+
+      it 'instantiates a lead person with type information' do
+        person = described_class.new(params).person
+
+        expect(person.person_type).to eq('lead')
+      end
     end
 
     context 'when type is user' do
@@ -105,6 +111,12 @@ RSpec.describe Clients::PersonBuilderClient do
 
         expect(user.email).to eq(params[:email])
       end
+
+      it 'instantiates a user person with type information' do
+        person = described_class.new(params).person
+
+        expect(person.person_type).to eq('user')
+      end
     end
 
     context 'when no type is provided' do
@@ -116,10 +128,16 @@ RSpec.describe Clients::PersonBuilderClient do
         described_class.new(params).person
       end
 
-      it 'instantiates a user person with email information' do
-        user = described_class.new(params).person
+      it 'instantiates a person with no type information' do
+        person = described_class.new(params).person
 
-        expect(user.email).to eq(params[:email])
+        expect(person.person_type).to eq(nil)
+      end
+
+      it 'instantiates a person person with email information' do
+        person = described_class.new(params).person
+
+        expect(person.email).to eq(params[:email])
       end
     end
   end
