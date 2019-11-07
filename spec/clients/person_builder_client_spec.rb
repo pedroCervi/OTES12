@@ -9,7 +9,7 @@ RSpec.describe Clients::PersonBuilderClient do
           cpf: '794.857.642-86',
           email: 'some@email.com',
           name: 'Marvin The Robot',
-          bank_name: 'name',
+          bank_name: 'Banco do Brasil',
           bank_agency_number: '1',
           bank_account_number: '12344',
           credit_card_number: '4821531560040456',
