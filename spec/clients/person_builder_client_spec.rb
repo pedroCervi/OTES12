@@ -13,7 +13,7 @@ RSpec.describe Clients::PersonBuilderClient do
           bank_agency_number: '1',
           bank_account_number: '12344',
           credit_card_number: '4821531560040456',
-          credit_card_flag: 'visa'
+          credit_card_flag: 'Visa'
         }
       end
 

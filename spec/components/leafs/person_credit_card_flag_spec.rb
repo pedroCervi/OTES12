@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Components::Leafs::PersonCreditCardFlag do
   let(:person) { Person.new }
-  let(:params) { 'visa' }
+  let(:params) { 'Visa' }
   let(:credit_card_flag_leaf) { described_class.new(person, params) }
 
   before do
