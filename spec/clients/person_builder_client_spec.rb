@@ -78,7 +78,7 @@ RSpec.describe Clients::PersonBuilderClient do
           type: 'user',
           cpf: '794.857.642-86',
           email: 'some@email.com',
-          age: '20'
+          name: 'Marvin'
         }
       end
 
