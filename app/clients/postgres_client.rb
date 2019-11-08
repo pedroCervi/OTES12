@@ -18,4 +18,12 @@ class Clients::PostgresClient
   def destroy_person(person)
     person.destroy
   end
+
+  def index(type)
+    if type.present?
+      Person.where(person_type: type)
+    else
+      Person.all
+    end
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_03_113107) do
+ActiveRecord::Schema.define(version: 2019_11_07_225419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_113107) do
     t.string "credit_card_flag"
     t.string "name"
     t.string "cpf"
+    t.string "person_type"
   end
 
 end

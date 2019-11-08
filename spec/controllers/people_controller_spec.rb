@@ -89,4 +89,54 @@ RSpec.describe PeopleController, type: :controller do
       end
     end
   end
+
+  describe 'GET index' do
+    context 'when there are no records to be found' do
+      context 'when no type is provided' do
+        it 'returns no records message' do
+          get :index
+
+          expect(response.body).to eq("No Record found.\n")
+        end
+      end
+
+      context "when provided type is 'user'" do
+        it 'returns no records message' do
+          get :index, params: { type: 'user' }
+
+          expect(response.body).to eq("No Record found.\n")
+        end
+      end
+    end
+
+    context 'when there are records to be found' do
+      let!(:person) { FactoryBot.create(:person) }
+      let!(:user_person) { FactoryBot.create(:user_person) }
+      let!(:lead_person) { FactoryBot.create(:lead_person) }
+
+      context 'when no type is provided' do
+        it 'returns all people on the database' do
+          people = [
+            person.attributes,
+            user_person.attributes,
+            lead_person.attributes
+          ]
+
+          get :index
+
+          JSON.parse(response.body).should match_array(people)
+        end
+      end
+
+      context "when provided type is 'user'" do
+        it 'returns user people on the database' do
+          people = [user_person.attributes]
+
+          get :index, params: { type: 'user' }
+
+          JSON.parse(response.body).should match_array(people)
+        end
+      end
+    end
+  end
 end

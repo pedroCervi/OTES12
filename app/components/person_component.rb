@@ -1,6 +1,6 @@
 class Components::PersonComponent
   def compose(subcomponents: nil)
-    if subcomponents
+    if subcomponents.present?
       @person.components + subcomponents
     else
       @person.components << self

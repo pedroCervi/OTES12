@@ -17,6 +17,7 @@ module Components::Composites
     end
 
     def subcomponents
+      @subcomponents << Components::Leafs::PersonType.new(@person, @params[:type])
       @subcomponents << Components::Leafs::PersonEmail.new(@person, @params[:email])
 
       @subcomponents
