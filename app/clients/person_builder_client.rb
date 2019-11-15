@@ -1,4 +1,4 @@
-class Clients::PersonBuilderClient < PersonBuilder
+class Clients::PersonBuilderClient
   def initialize(params)
     @params = params
   end
