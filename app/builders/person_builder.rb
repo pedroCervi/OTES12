@@ -1,4 +1,4 @@
-class PersonBuilder
+class PersonBuilder < PersonBuilderInterface
   def initialize
     @person = Person.new
     @person.components = []
@@ -27,6 +27,8 @@ class PersonBuilder
 
     @person
   end
+
+  private
 
   def assemble
     attributes = {}
