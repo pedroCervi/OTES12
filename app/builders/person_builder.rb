@@ -1,4 +1,4 @@
-class PersonBuilder < PersonBuilderInterface
+class PersonBuilder < ::PersonBuilderInterface
   def initialize
     @person = Person.new
     @person.components = []

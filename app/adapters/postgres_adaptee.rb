@@ -1,4 +1,4 @@
-class Clients::PostgresClient
+class Adapters::PostgresAdaptee
   def create_person(person)
     person.save
   end
