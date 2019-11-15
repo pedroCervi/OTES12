@@ -2,7 +2,7 @@ class PeopleController < ActionController::Base
   protect_from_forgery with: :null_session
 
   def create
-    person = Clients::PersonBuilderClient.new(params).person
+    person = Builders::PersonBuilderDirector.new(params).person
 
     adaptee_database.create(person)
     render json: "person_id: #{person.id}\n"

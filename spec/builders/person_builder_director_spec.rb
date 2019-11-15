@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Clients::PersonBuilderClient do
+RSpec.describe Builders::PersonBuilderDirector do
   describe '.person' do
     context 'when type is lead' do
       let(:params) do
