@@ -3,8 +3,10 @@ require 'simplecov'
 SimpleCov.start do
   add_filter '/spec/'
 
-  add_group 'Builders', 'app/helpers'
-  add_group 'Components', 'app/mailers'
+  add_group 'Adapters', 'app/adapters'
+  add_group 'Builders', 'app/builders'
+  add_group 'Clients', 'app/clients'
+  add_group 'Components', 'app/components'
   add_group 'Controllers', 'app/controllers'
   add_group 'Models', 'app/models'
 end
