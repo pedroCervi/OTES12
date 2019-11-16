@@ -22,4 +22,6 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
+gem 'simplecov', require: false, group: :test
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
