@@ -8,6 +8,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'pry', '~> 0.12.2'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
+gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
