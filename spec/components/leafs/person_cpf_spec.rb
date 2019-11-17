@@ -22,6 +22,12 @@ RSpec.describe Components::Leafs::PersonCpf do
       it 'returns false' do
         expect(cpf_leaf.valid?).to be(false)
       end
+
+      it 'shows error message' do
+        person_errors = cpf_leaf.instance_variable_get('@person').errors
+
+        expect(person_errors).to eq(cpf: 'invalid')
+      end
     end
   end
 

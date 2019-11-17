@@ -22,6 +22,12 @@ RSpec.describe Components::Leafs::PersonBankName do
       it 'returns false' do
         expect(bank_name_leaf.valid?).to be(false)
       end
+
+      it 'shows error message' do
+        person_errors = bank_name_leaf.instance_variable_get('@person').errors
+
+        expect(person_errors).to eq(bank_name: 'invalid')
+      end
     end
   end
 

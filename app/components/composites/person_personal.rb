@@ -5,7 +5,18 @@ module Components::Composites
       @params = params
       @subcomponents = []
 
-      valid? ? compose(subcomponents: subcomponents) : compose_with_error
+      valid? ? compose(subcomponents: subcomponents) : compose_with_error(message: message)
+    end
+
+    def missing_params
+      required_params = %i[cpf name].freeze
+      @missing_params = []
+
+      required_params.each do |param_name|
+        @params[param_name].present? ? nil : @missing_params << param_name
+      end
+
+      @missing_params
     end
 
     def valid?
@@ -14,7 +25,11 @@ module Components::Composites
         @params[:name]
       ]
 
-      params.any? ? params.all? : true
+      params.any? ? missing_params.blank? : true
+    end
+
+    def message
+      "Missing params: #{missing_params}"
     end
 
     def type

@@ -7,8 +7,8 @@ class Components::PersonComponent
     end
   end
 
-  def compose_with_error
-    @person.errors << type
+  def compose_with_error(message: nil)
+    @person.errors[type] = message
   end
 
   def valid?

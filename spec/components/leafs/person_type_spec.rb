@@ -22,6 +22,12 @@ RSpec.describe Components::Leafs::PersonType do
       it 'returns false' do
         expect(person_type_leaf.valid?).to be(false)
       end
+
+      it 'shows error message' do
+        person_errors = person_type_leaf.instance_variable_get('@person').errors
+
+        expect(person_errors).to eq(person_type: 'invalid')
+      end
     end
   end
 

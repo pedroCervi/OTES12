@@ -64,8 +64,8 @@ RSpec.describe PeopleController, type: :controller do
     context 'when passing invalid params' do
       before { put :update, params: { id: person.id, invalid_param: 'test@email.com' } }
 
-      it 'returns an error' do
-        expect(response.body.include?('error:')).to be(true)
+      it 'returns invalid params error' do
+        expect(response.body.include?('Invalid params error')).to be(true)
       end
     end
   end
