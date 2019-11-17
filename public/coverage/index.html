@@ -14,26 +14,26 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-11-17T17:12:50-03:00">2019-11-17T17:12:50-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-11-17T19:24:57-03:00">2019-11-17T19:24:57-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.31%</span></span>
+    (<span class="covered_percent"><span class="green">98.32%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         8.77
+         8.75
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>37</b> files in total.
-    <b>415</b> relevant lines. 
-    <span class="green"><b>408</b> lines covered</span> and
+    <b>416</b> relevant lines. 
+    <span class="green"><b>409</b> lines covered</span> and
     <span class="red"><b>7</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -262,10 +262,10 @@
       
       <tr>
         <td class="strong"><a href="#4e9e060d58d45cf27134407fc05f78fccb8148d6" class="src_link" title="app/controllers/people_controller.rb">app/controllers/people_controller.rb</a></td>
-        <td class="green strong">95.0 %</td>
-        <td>73</td>
-        <td>40</td>
-        <td>38</td>
+        <td class="green strong">95.12 %</td>
+        <td>74</td>
+        <td>41</td>
+        <td>39</td>
         <td>2</td>
         <td>2.3</td>
       </tr>
@@ -787,7 +787,7 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="green">95.0%</span></span>
+    (<span class="covered_percent"><span class="green">95.12%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -798,8 +798,8 @@
   <a name="Controllers"></a>
   <div>
     <b>1</b> files in total.
-    <b>40</b> relevant lines. 
-    <span class="green"><b>38</b> lines covered</span> and
+    <b>41</b> relevant lines. 
+    <span class="green"><b>39</b> lines covered</span> and
     <span class="red"><b>2</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -818,10 +818,10 @@
       
       <tr>
         <td class="strong"><a href="#4e9e060d58d45cf27134407fc05f78fccb8148d6" class="src_link" title="app/controllers/people_controller.rb">app/controllers/people_controller.rb</a></td>
-        <td class="green strong">95.0 %</td>
-        <td>73</td>
-        <td>40</td>
-        <td>38</td>
+        <td class="green strong">95.12 %</td>
+        <td>74</td>
+        <td>41</td>
+        <td>39</td>
         <td>2</td>
         <td>2.3</td>
       </tr>
@@ -5259,10 +5259,10 @@
         <div class="source_table" id="4e9e060d58d45cf27134407fc05f78fccb8148d6">
   <div class="header">
     <h3>app/controllers/people_controller.rb</h3>
-    <h4><span class="green">95.0 %</span> covered</h4>
+    <h4><span class="green">95.12 %</span> covered</h4>
     <div>
-      <b>40</b> relevant lines. 
-      <span class="green"><b>38</b> lines covered</span> and
+      <b>41</b> relevant lines. 
+      <span class="green"><b>39</b> lines covered</span> and
       <span class="red"><b>2</b> lines missed.</span>
     </div>
   </div>
@@ -5483,226 +5483,232 @@
         <li class="covered" data-hits="3" data-linenumber="36">
           <span class="hits">3</span>
           
-          <code class="ruby">    invalid_params = person_attributes.keys - valid_params</code>
+          <code class="ruby">    valid_params &lt;&lt; &#39;type&#39;</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="37">
           <span class="hits">3</span>
           
+          <code class="ruby">    invalid_params = person_attributes.keys - valid_params</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="38">
+          <span class="hits">3</span>
+          
           <code class="ruby">    return render json: &quot;Invalid params error: #{invalid_params}.\n&quot; if invalid_params.present?</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="39">
+        <li class="covered" data-hits="2" data-linenumber="40">
           <span class="hits">2</span>
           
           <code class="ruby">    updated_person = Builders::PersonBuilderDirector.new(person_attributes.with_indifferent_access).person</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="41">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="41">
+        <li class="covered" data-hits="2" data-linenumber="42">
           <span class="hits">2</span>
           
           <code class="ruby">    return render json: &quot;Errors: #{updated_person.errors}.\n&quot; if updated_person.errors.present?</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="43">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    database_client.update(person, updated_person.attributes)</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="44">
           <span class="hits">2</span>
           
+          <code class="ruby">    database_client.update(person, updated_person.attributes)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="45">
+          <span class="hits">2</span>
+          
           <code class="ruby">    render json: &quot;person_id: #{person.id}\n&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="never" data-hits="" data-linenumber="46">
           
           
           <code class="ruby">  rescue StandardError =&gt; e</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="46">
+        <li class="missed" data-hits="0" data-linenumber="47">
           
           
           <code class="ruby">    render json: &quot;error: #{e}\n&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="49">
+        <li class="covered" data-hits="1" data-linenumber="50">
           <span class="hits">1</span>
           
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="50">
+        <li class="covered" data-hits="2" data-linenumber="51">
           <span class="hits">2</span>
           
           <code class="ruby">    person = database_client.read(params[:id])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="51">
+        <li class="never" data-hits="" data-linenumber="52">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="52">
+        <li class="covered" data-hits="2" data-linenumber="53">
           <span class="hits">2</span>
           
           <code class="ruby">    return render json: &quot;Record not found.\n&quot; if person.blank?</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="54">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    database_client.delete(person)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="55">
           <span class="hits">1</span>
           
+          <code class="ruby">    database_client.delete(person)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="56">
+          <span class="hits">1</span>
+          
           <code class="ruby">    render json: &quot;Person successfully deleted.\n&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="57">
           
           
           <code class="ruby">  rescue StandardError =&gt; e</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="57">
+        <li class="missed" data-hits="0" data-linenumber="58">
           
           
           <code class="ruby">    render json: &quot;error: #{e}\n&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="59">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="60">
+        <li class="covered" data-hits="1" data-linenumber="61">
           <span class="hits">1</span>
           
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="61">
+        <li class="covered" data-hits="4" data-linenumber="62">
           <span class="hits">4</span>
           
           <code class="ruby">    people = database_client.index(params[:type])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="62">
+        <li class="never" data-hits="" data-linenumber="63">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="63">
+        <li class="covered" data-hits="4" data-linenumber="64">
           <span class="hits">4</span>
           
           <code class="ruby">    return render json: &quot;No Record found.\n&quot; if people.blank?</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="64">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="65">
+        <li class="covered" data-hits="2" data-linenumber="66">
           <span class="hits">2</span>
           
           <code class="ruby">    render json: people.to_json</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="never" data-hits="" data-linenumber="67">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="67">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="68">
+        <li class="covered" data-hits="1" data-linenumber="69">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="69">
+        <li class="never" data-hits="" data-linenumber="70">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="70">
+        <li class="covered" data-hits="1" data-linenumber="71">
           <span class="hits">1</span>
           
           <code class="ruby">  def database_client</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="71">
+        <li class="covered" data-hits="16" data-linenumber="72">
           <span class="hits">16</span>
           
           <code class="ruby">    @database_client ||= Clients::DatabaseClient.new</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="72">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="73">
+        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby">end</code>

@@ -33,6 +33,7 @@ class PeopleController < ActionController::Base
     end
 
     valid_params = person.attributes.keys
+    valid_params << 'type'
     invalid_params = person_attributes.keys - valid_params
     return render json: "Invalid params error: #{invalid_params}.\n" if invalid_params.present?
 
