@@ -25,6 +25,10 @@ RSpec.describe Components::Composites::PersonCreditCard do
       it 'returns false' do
         expect(credit_card_composite.valid?).to be(false)
       end
+
+      it 'shows missing param' do
+        expect(credit_card_composite.missing_params).to eq([:credit_card_flag])
+      end
     end
   end
 

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Components::Composites::PersonPersonal do
   let(:person) { Person.new }
-  let(:params) { { email: 'some@email.com', cpf: '111', name: 'Marvin' } }
+  let(:params) { { cpf: '111', name: 'Marvin' } }
   let(:personal_composite) { described_class.new(person, params) }
 
   before do
@@ -21,6 +21,10 @@ RSpec.describe Components::Composites::PersonPersonal do
 
       it 'returns false' do
         expect(personal_composite.valid?).to be(false)
+      end
+
+      it 'shows missing param' do
+        expect(personal_composite.missing_params).to eq([:name])
       end
     end
   end

@@ -4,8 +4,12 @@ class PeopleController < ActionController::Base
   def create
     person = Builders::PersonBuilderDirector.new(params).person
 
-    database_client.create(person)
-    render json: "person_id: #{person.id}\n"
+    if person.errors.present?
+      return render json: "Errors: #{person.errors}.\n"
+    else
+      database_client.create(person)
+      render json: "person_id: #{person.id}\n"
+    end
   rescue StandardError => e
     render json: "error: #{e}\n"
   end

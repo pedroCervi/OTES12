@@ -25,6 +25,10 @@ RSpec.describe Components::Composites::PersonBank do
       it 'returns false' do
         expect(bank_composite.valid?).to be(false)
       end
+
+      it 'shows missing param' do
+        expect(bank_composite.missing_params).to eq([:bank_agency_number, :bank_account_number])
+      end
     end
   end
 
