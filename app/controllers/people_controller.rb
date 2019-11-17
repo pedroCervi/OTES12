@@ -22,10 +22,21 @@ class PeopleController < ActionController::Base
 
   def update
     person = database_client.read(params[:id])
+    person_attributes = person.attributes
 
     return render json: "Record not found.\n" if person.blank?
 
-    database_client.update(person, params)
+    params.except('controller', 'action').each do |key, value|
+      person_attributes[key] = value
+    end
+
+    valid_params = person.attributes.keys
+    invalid_params = person_attributes.keys - valid_params
+    return render json: "Invalid params error: #{invalid_params}.\n" if invalid_params.present?
+
+    updated_person = Builders::PersonBuilderDirector.new(person_attributes.with_indifferent_access).person
+
+    database_client.update(person, updated_person.attributes)
     render json: "person_id: #{person.id}\n"
   rescue StandardError => e
     render json: "error: #{e}\n"

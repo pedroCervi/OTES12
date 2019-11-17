@@ -11,8 +11,8 @@ class Adapters::PostgresAdaptee
     person.first
   end
 
-  def update_person(person, params)
-    person.update(email: params[:email])
+  def update_person(person, updated_params)
+    person.update(updated_params.except('id'))
   end
 
   def destroy_person(person)
