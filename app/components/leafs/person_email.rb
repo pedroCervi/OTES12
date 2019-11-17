@@ -6,7 +6,11 @@ module Components::Leafs
       @person = person
       @value = value
 
-      valid? ? compose : compose_with_error
+      valid? ? compose : compose_with_error(message: message)
+    end
+
+    def message
+      'invalid'
     end
 
     def valid?

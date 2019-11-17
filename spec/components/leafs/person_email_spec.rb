@@ -22,6 +22,12 @@ RSpec.describe Components::Leafs::PersonEmail do
       it 'returns false' do
         expect(email_leaf.valid?).to be(false)
       end
+
+      it 'shows error message' do
+        person_errors = email_leaf.instance_variable_get('@person').errors
+
+        expect(person_errors).to eq(email: 'invalid')
+      end
     end
   end
 

@@ -22,6 +22,12 @@ RSpec.describe Components::Leafs::PersonCreditCardFlag do
       it 'returns false' do
         expect(credit_card_flag_leaf.valid?).to be(false)
       end
+
+      it 'shows error message' do
+        person_errors = credit_card_flag_leaf.instance_variable_get('@person').errors
+
+        expect(person_errors).to eq(credit_card_flag: 'invalid')
+      end
     end
   end
 
