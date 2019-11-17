@@ -1,3 +1,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+
+# Ignore node and yarn
+/node/*
+yarn.lock
