@@ -4,12 +4,10 @@ class PeopleController < ActionController::Base
   def create
     person = Builders::PersonBuilderDirector.new(params).person
 
-    if person.errors.present?
-      return render json: "Errors: #{person.errors}.\n"
-    else
-      database_client.create(person)
-      render json: "person_id: #{person.id}\n"
-    end
+    return render json: "Errors: #{person.errors}.\n" if person.errors.present?
+
+    database_client.create(person)
+    render json: "person_id: #{person.id}\n"
   rescue StandardError => e
     render json: "error: #{e}\n"
   end
@@ -39,6 +37,8 @@ class PeopleController < ActionController::Base
     return render json: "Invalid params error: #{invalid_params}.\n" if invalid_params.present?
 
     updated_person = Builders::PersonBuilderDirector.new(person_attributes.with_indifferent_access).person
+
+    return render json: "Errors: #{updated_person.errors}.\n" if updated_person.errors.present?
 
     database_client.update(person, updated_person.attributes)
     render json: "person_id: #{person.id}\n"
