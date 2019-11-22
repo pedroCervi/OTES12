@@ -1,5 +1,5 @@
 module Clients::Logger
-  SERVICE_ID = '5'.freeze
+  SERVICE_ID = '2'.freeze
   # TODO: Wait for API development
   # LOGGER_URL = ''.freeze
 
