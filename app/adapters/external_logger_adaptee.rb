@@ -31,6 +31,17 @@ class Adapters::ExternalLoggerAdaptee
     puts e
   end
 
+  def logs
+    response = HTTParty.get(
+      logger_route,
+      headers: { 'Content-Type' => 'application/json' }
+    )
+
+    JSON.parse(response.body)
+  rescue StandardError => e
+    puts e
+  end
+
   private
 
   def logger_route
