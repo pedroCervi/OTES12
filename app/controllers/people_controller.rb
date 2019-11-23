@@ -4,11 +4,16 @@ class PeopleController < ActionController::Base
   def create
     person = Builders::PersonBuilderDirector.new(params).person
 
-    return render json: "Errors: #{person.errors}.\n" if person.errors.present?
-
-    database_client.create(person)
-    render json: "person_id: #{person.id}\n"
+    if person.errors.present?
+      logger_client.create_error_log(params, person.errors, action_name)
+      return render json: "Errors: #{person.errors}.\n"
+    else
+      database_client.create(person)
+      logger_client.create_info_log(params, person, action_name)
+      render json: "person_id: #{person.id}\n"
+    end
   rescue StandardError => e
+    logger_client.create_error_log(params, e, action_name)
     render json: "error: #{e}\n"
   end
 
@@ -70,5 +75,9 @@ class PeopleController < ActionController::Base
 
   def database_client
     @database_client ||= Clients::DatabaseClient.new
+  end
+
+  def logger_client
+    @logger_client ||= Clients::LoggerClient.new
   end
 end
