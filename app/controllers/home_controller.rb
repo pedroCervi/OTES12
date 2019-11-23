@@ -4,7 +4,9 @@ class HomeController < ActionController::Base
   def index; end
 
   def logs
-    @logs = logger_client.logs.reverse
+    @logs = logger_client.logs&.reverse
+
+    @logs.present? ? @logs : []
   end
 
   def backups; end
