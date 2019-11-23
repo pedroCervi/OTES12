@@ -13,6 +13,8 @@ class Adapters::ExternalLoggerAdaptee
       body: payload.to_json,
       headers: { 'Content-Type' => 'application/json' }
     )
+  rescue StandardError => e
+    puts e
   end
 
   def create_info_log(params, person, action)
@@ -25,6 +27,8 @@ class Adapters::ExternalLoggerAdaptee
       body: payload.to_json,
       headers: { 'Content-Type' => 'application/json' }
     )
+  rescue StandardError => e
+    puts e
   end
 
   private
