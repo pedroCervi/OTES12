@@ -4,11 +4,16 @@ class PeopleController < ActionController::Base
   def create
     person = Builders::PersonBuilderDirector.new(params).person
 
-    return render json: "Errors: #{person.errors}.\n" if person.errors.present?
-
-    database_client.create(person)
-    render json: "person_id: #{person.id}\n"
+    if person.errors.present?
+      logger_client.create_error_log(params, person.errors, action_name)
+      return render json: "Errors: #{person.errors}.\n"
+    else
+      database_client.create(person)
+      logger_client.create_info_log(params, person, action_name)
+      render json: "person_id: #{person.id}\n"
+    end
   rescue StandardError => e
+    logger_client.create_error_log(params, e, action_name)
     render json: "error: #{e}\n"
   end
 
@@ -20,6 +25,9 @@ class PeopleController < ActionController::Base
     else
       render json: "Record not found.\n"
     end
+  rescue StandardError => e
+    logger_client.create_error_log(params, e, action_name)
+    render json: "error: #{e}\n"
   end
 
   def update
@@ -41,6 +49,7 @@ class PeopleController < ActionController::Base
 
     return render json: "Errors: #{updated_person.errors}.\n" if updated_person.errors.present?
 
+    logger_client.create_info_log(params, person, action_name)
     database_client.update(person, updated_person.attributes)
     render json: "person_id: #{person.id}\n"
   rescue StandardError => e
@@ -53,8 +62,10 @@ class PeopleController < ActionController::Base
     return render json: "Record not found.\n" if person.blank?
 
     database_client.delete(person)
+    logger_client.create_info_log(params, person, action_name)
     render json: "Person successfully deleted.\n"
   rescue StandardError => e
+    logger_client.create_error_log(params, e, action_name)
     render json: "error: #{e}\n"
   end
 
@@ -64,11 +75,18 @@ class PeopleController < ActionController::Base
     return render json: "No Record found.\n" if people.blank?
 
     render json: people.to_json
+  rescue StandardError => e
+    logger_client.create_error_log(params, e, action_name)
+    render json: "error: #{e}\n"
   end
 
   private
 
   def database_client
     @database_client ||= Clients::DatabaseClient.new
+  end
+
+  def logger_client
+    @logger_client ||= Clients::LoggerClient.new
   end
 end
