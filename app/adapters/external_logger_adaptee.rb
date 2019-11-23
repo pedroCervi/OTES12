@@ -34,6 +34,10 @@ class Adapters::ExternalLoggerAdaptee
   private
 
   def logger_route
-    LOGGER_URL + '/' + NAMESPACE + '/' + SERVICE_ID
+    if ENV['RAILS_ENV'] == 'production'
+      ENV['LOGGER_URL'] + '/' + ENV['LOGGER_NAMESPACE'] + '/' + ENV['LOGGER_SERVICE_ID']
+    else
+      LOGGER_URL + '/' + NAMESPACE + '/' + SERVICE_ID
+    end
   end
 end
