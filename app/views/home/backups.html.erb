@@ -1,2 +1,17 @@
 <div><h2>Backups</h2></div>
 <div><h4><a href="/">home</a></h4></div>
+
+<div>
+  <h4>Salvar backup</h4>
+  <form action="/create_backup">
+    <input type="submit" value="Salvar">
+  </form>
+</div>
+
+<div>
+  <h4>Recuperar backup</h4>
+  <form action="/get_backup">
+    <input type="text" name="id"><br>
+    <input type="submit" value="Recuperar">
+  </form>
+</div>
