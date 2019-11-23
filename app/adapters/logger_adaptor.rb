@@ -10,4 +10,8 @@ class Adapters::LoggerAdaptor
   def create_info_log(params, person, action)
     @adaptee&.create_info_log(params, person, action)
   end
+
+  def logs
+    @adaptee&.logs
+  end
 end

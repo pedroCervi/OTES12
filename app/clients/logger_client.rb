@@ -11,5 +11,9 @@ module Clients
     def create_info_log(params, person, action)
       @logger_adaptor.create_info_log(params, person, action)
     end
+
+    def logs
+      @logger_adaptor.logs
+    end
   end
 end

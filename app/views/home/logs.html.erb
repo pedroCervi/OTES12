@@ -1,0 +1,15 @@
+<div><h2>Logs</h2></div>
+<div><h4><a href="/">home</a></h4></div>
+
+<table>
+  <tr>
+    <th>created_at</th>
+    <th>description</th>
+  </tr>
+  <% @logs.each do |log| %>
+    <tr>
+      <td><%= log['created_at'] %></td>
+      <td><%= log['description'] %></td>
+    </tr>
+  <% end %>
+</table>
