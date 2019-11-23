@@ -6,7 +6,9 @@ class HomeController < ActionController::Base
   def logs
     @logs = logger_client.logs&.reverse
 
-    @logs.present? ? @logs : []
+    if @logs.blank?
+      @logs = []
+    end
   end
 
   def backups; end
