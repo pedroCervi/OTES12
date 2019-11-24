@@ -36,7 +36,7 @@ class PeopleController < ActionController::Base
 
     return render json: "Record not found.\n" if person.blank?
 
-    params.except('controller', 'action').each do |key, value|
+    params.except('controller', 'action', '_method').each do |key, value|
       person_attributes[key] = value
     end
 
