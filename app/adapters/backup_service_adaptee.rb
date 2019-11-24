@@ -1,5 +1,5 @@
 class Adapters::BackupServiceAdaptee
-  BACKUP_SERVICE_URL = 'http://ec0c99e5.ngrok.io'.freeze
+  BACKUP_SERVICE_URL = 'http://72a0fa4b.ngrok.io'.freeze
   NAMESPACE = 'backup'.freeze
 
   def create_backup
@@ -18,7 +18,7 @@ class Adapters::BackupServiceAdaptee
 
   def get_backup(id)
     HTTParty.get(
-      backup_service_route + '/' + id,
+      "#{backup_service_route}/#{id}",
       headers: { 'Content-Type' => 'application/json' }
     )
   rescue StandardError => e

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get 'create_backup', to: 'backups#create'
   get 'get_backup', to: 'backups#read'
+  get 'restore_backup', to: 'backups#restore'
 
   resources :people
   resources :person_interface

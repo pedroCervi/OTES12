@@ -22,4 +22,8 @@ class Clients::DatabaseClient
   def index(type)
     @database_adaptor.index(type)
   end
+
+  def destroy_all
+    @database_adaptor.destroy_all
+  end
 end
