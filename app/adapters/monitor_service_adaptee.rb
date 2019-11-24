@@ -32,6 +32,26 @@ class Adapters::MonitorServiceAdaptee
     puts e
   end
 
+  def statistics_data
+    people_api_data = []
+
+    result = HTTParty.get(
+      "#{monitor_service_route}",
+      headers: { 'Content-Type' => 'application/json' }
+    )
+
+    parsed_result = JSON.parse(result)
+    parsed_result.each do |data|
+      if data['nome'] == 'People API'
+        people_api_data << data
+      end
+    end
+
+    people_api_data
+  rescue StandardError => e
+    puts e
+  end
+
   private
 
   def monitor_service_route

@@ -10,4 +10,8 @@ class Clients::MonitorServiceClient
   def finish(id)
     @monitor_service_adaptor.finish(id)
   end
+
+  def statistics_data
+    @monitor_service_adaptor.statistics_data
+  end
 end
