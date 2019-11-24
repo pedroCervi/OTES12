@@ -10,4 +10,8 @@ class Adapters::MonitorServiceAdaptor
   def finish(id)
     @adaptee.finish(id)
   end
+
+  def statistics_data
+    @adaptee.statistics_data
+  end
 end

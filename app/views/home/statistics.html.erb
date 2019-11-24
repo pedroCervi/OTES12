@@ -1,2 +1,13 @@
 <div><h2>Estatísticas</h2></div>
 <div><h4><a href="/">home</a></h4></div>
+
+
+<div>Ordem descrecente do tempo de recuperação do banco de dados:</div>
+<ul>
+  <% @sort_desc.each do |number| %>
+    <li><%= number %></li>
+  <% end %>
+</ul>
+
+<div>Média de tempo de recuperação do banco de dados: <%= @average %></div>
+<div>Médiana de tempo de recuperação do banco de dados: <%= @median %></div>
