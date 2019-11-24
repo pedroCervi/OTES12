@@ -1,0 +1,36 @@
+<div><h2>Pessoas</h2></div>
+<div><h4><a href="/">home</a></h4></div>
+
+<div><h5><a href="/person_interface/new">Criar pessoa</a></h5></div>
+
+<table>
+  <tr>
+    <th align="center">id</th>
+    <th align="center">email</th>
+    <th align="center">person_type</th>
+    <th align="center">name</th>
+    <th align="center">cpf</th>
+    <th align="center">bank_name</th>
+    <th align="center">bank_account_number</th>
+    <th align="center">bank_agency_number</th>
+    <th align="center">credit_card_number</th>
+    <th align="center">credit_card_flag</th>
+    <th>delete</th>
+  </tr>
+
+  <% @people.each do |person| %>
+    <tr>
+      <td align="center"><%= person.id %></td>
+      <td align="center"><a href=<%= "/person_interface/#{person.id}/edit" %>><%= person.email %></a></td>
+      <td align="center"><%= person.person_type %></td>
+      <td align="center"><%= person.name %></td>
+      <td align="center"><%= person.cpf %></td>
+      <td align="center"><%= person.bank_name %></td>
+      <td align="center"><%= person.bank_account_number %></td>
+      <td align="center"><%= person.bank_agency_number %></td>
+      <td align="center"><%= person.credit_card_number %></td>
+      <td align="center"><%= person.credit_card_flag %></td>
+      <td align="center"><a href=<%= "/person_interface/#{person.id}/delete" %>>X</a></td>
+    </tr>
+  <% end %>
+</table>

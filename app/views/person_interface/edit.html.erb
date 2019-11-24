@@ -1,0 +1,48 @@
+<div><h2>Editar pessoa</h2></div>
+<div><h4><a href="/">home</a></h4></div>
+
+<form method="post" action=<%= "/people/#{@person.id}" %>>
+  <table>
+    <tr>
+      <td><label>email</label></td>
+      <td><input type="text" name="email" value=<%= @person.email %>></td>
+    </tr>
+    <tr>
+      <td><label>type</label></td>
+      <td><input type="text" name="type" value=<%= @person.person_type %>></td>
+    </tr>
+    <tr>
+      <td><label>name</label></td>
+      <td><input type="text" name="name" value="<%= @person.name %>"></td>
+    </tr>
+    <tr>
+      <td><label>cpf</label></td>
+      <td><input type="text" name="cpf" value=<%= @person.cpf %>></td>
+    </tr>
+    <tr>
+      <td><label>bank_name</label></td>
+      <td><input type="text" name="bank_name" value="<%= @person.bank_name %>"></td>
+    </tr>
+    <tr>
+      <td><label>bank_account_number</label></td>
+      <td><input type="text" name="bank_account_number" value=<%= @person.bank_account_number %>></td>
+    </tr>
+    <tr>
+      <td><label>bank_agency_number</label></td>
+      <td><input type="text" name="bank_agency_number" value=<%= @person.bank_agency_number %>></td>
+    </tr>
+    <tr>
+      <td><label>credit_card_number</label></td>
+      <td><input type="text" name="credit_card_number" value=<%= @person.credit_card_number %>></td>
+    </tr>
+    <tr>
+      <td><label>credit_card_flag</label></td>
+      <td><input type="text" name="credit_card_flag" value=<%= @person.credit_card_flag %>></td>
+    </tr>
+  </table>
+
+  <input type="hidden" name="_method" value="PUT">
+  <input type="submit" value="Salvar">
+</form>
+
+

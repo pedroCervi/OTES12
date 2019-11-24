@@ -1,0 +1,47 @@
+<div><h2>Criar pessoa</h2></div>
+<div><h4><a href="/">home</a></h4></div>
+
+<form method="post" action=<%= "/people" %>>
+  <table>
+    <tr>
+      <td><label>email</label></td>
+      <td><input type="text" name="email"></td>
+    </tr>
+    <tr>
+      <td><label>type</label></td>
+      <td><input type="text" name="type"></td>
+    </tr>
+    <tr>
+      <td><label>name</label></td>
+      <td><input type="text" name="name" value="<%= %>"></td>
+    </tr>
+    <tr>
+      <td><label>cpf</label></td>
+      <td><input type="text" name="cpf"></td>
+    </tr>
+    <tr>
+      <td><label>bank_name</label></td>
+      <td><input type="text" name="bank_name" value="<%= %>"></td>
+    </tr>
+    <tr>
+      <td><label>bank_account_number</label></td>
+      <td><input type="text" name="bank_account_number"></td>
+    </tr>
+    <tr>
+      <td><label>bank_agency_number</label></td>
+      <td><input type="text" name="bank_agency_number"></td>
+    </tr>
+    <tr>
+      <td><label>credit_card_number</label></td>
+      <td><input type="text" name="credit_card_number"></td>
+    </tr>
+    <tr>
+      <td><label>credit_card_flag</label></td>
+      <td><input type="text" name="credit_card_flag"></td>
+    </tr>
+  </table>
+
+  <input type="submit" value="Salvar">
+</form>
+
+
