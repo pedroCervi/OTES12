@@ -22,4 +22,8 @@ class Adapters::DatabaseAdaptor
   def index(type)
     @adaptee.index(type)
   end
+
+  def destroy_all
+    @adaptee.destroy_all
+  end
 end

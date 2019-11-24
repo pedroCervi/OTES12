@@ -26,4 +26,8 @@ class Adapters::PostgresAdaptee
       Person.all
     end
   end
+
+  def destroy_all
+    Person.destroy_all
+  end
 end
