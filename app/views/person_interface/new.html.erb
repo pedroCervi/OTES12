@@ -3,39 +3,46 @@
 
 <form method="post" action=<%= "/people" %>>
   <table>
-    <tr>
-      <td><label>email</label></td>
+    <tr id="type" onchange="showFields()">
+      <td><label>type</label></td>
+      <td>
+        <input type="radio" id="user_type" name="type" value="user">
+        <label for="user">User</label>
+        <input type="radio" id="lead_type" name="type" value="lead">
+        <label for="lead">Lead</label>
+        <input type="radio" id="default_type" name="type" value="" checked>
+        <label for="default">Default</label>
+      </td>
+    </tr>
+    <tr id="email">
+      <td style="width: 160px"><label>email</label></td>
       <td><input type="text" name="email"></td>
     </tr>
-    <tr>
-      <td><label>type</label></td>
-      <td><input type="text" name="type"></td>
-    </tr>
-    <tr>
+    <tr id="name">
       <td><label>name</label></td>
-      <td><input type="text" name="name" value="<%= %>"></td>
+      <td><input type="text" name="name"></td>
     </tr>
-    <tr>
+    <tr id="cpf">
       <td><label>cpf</label></td>
       <td><input type="text" name="cpf"></td>
     </tr>
-    <tr>
+    <tr id="bank_name">
       <td><label>bank_name</label></td>
-      <td><input type="text" name="bank_name" value="<%= %>"></td>
+      <td><input type="text" name="bank_name"></td>
     </tr>
-    <tr>
+    <tr id="bank_account_number">
       <td><label>bank_account_number</label></td>
       <td><input type="text" name="bank_account_number"></td>
     </tr>
-    <tr>
+    <tr id="bank_agency_number">
       <td><label>bank_agency_number</label></td>
       <td><input type="text" name="bank_agency_number"></td>
     </tr>
-    <tr>
+    <tr id="credit_card_number">
       <td><label>credit_card_number</label></td>
       <td><input type="text" name="credit_card_number"></td>
     </tr>
-    <tr>
+    <tr id="credit_card_flag">
       <td><label>credit_card_flag</label></td>
       <td><input type="text" name="credit_card_flag"></td>
     </tr>
@@ -44,4 +51,46 @@
   <input type="submit" value="Salvar">
 </form>
 
+<script type="text/javascript">
+  function showFields() {
+    var user_type = document.getElementById('user_type');
+    var lead_type = document.getElementById('lead_type');
+    var default_type = document.getElementById('default_type');
 
+    var name = document.getElementById('name');
+    var cpf = document.getElementById('cpf');
+    var bank_name = document.getElementById('bank_name');
+    var bank_account_number = document.getElementById('bank_account_number');
+    var bank_agency_number = document.getElementById('bank_agency_number');
+    var credit_card_number = document.getElementById('credit_card_number');
+    var credit_card_flag = document.getElementById('credit_card_flag');
+
+    if(user_type.checked) {
+      name.style.display = "table-row"
+      cpf.style.display = "table-row"
+      bank_name.style.display = "none"
+      bank_account_number.style.display = "none"
+      bank_agency_number.style.display = "none"
+      credit_card_number.style.display = "none"
+      credit_card_flag.style.display = "none"
+    } else if(lead_type.checked) {
+      name.style.display = "table-row"
+      cpf.style.display = "table-row"
+      bank_name.style.display = "table-row"
+      bank_account_number.style.display = "table-row"
+      bank_agency_number.style.display = "table-row"
+      credit_card_number.style.display = "table-row"
+      credit_card_flag.style.display = "table-row"
+    } else if(default_type.checked) {
+      name.style.display = "none"
+      cpf.style.display = "none"
+      bank_name.style.display = "none"
+      bank_account_number.style.display = "none"
+      bank_agency_number.style.display = "none"
+      credit_card_number.style.display = "none"
+      credit_card_flag.style.display = "none"
+    }
+  }
+
+  window.onload = showFields();
+</script>
